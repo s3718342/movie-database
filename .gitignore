@@ -1,4 +1,6 @@
-/.ipynb_checkpoints
-/vscode
-/output
-/input
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+vscode
+output
+input
+db/movies.db
