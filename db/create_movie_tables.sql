@@ -1,26 +1,27 @@
 PRAGMA encoding = 'UTF-8';
+PRAGMA foreign_keys = ON;
 
-DROP TABLE IF EXISTS movies;
+DROP TABLE IF EXISTS movie;
 
-DROP TABLE IF EXISTS characters;
+DROP TABLE IF EXISTS character;
 
-DROP TABLE IF EXISTS actors;
+DROP TABLE IF EXISTS actor;
 
-DROP TABLE IF EXISTS genres;
+DROP TABLE IF EXISTS genre;
 
-DROP TABLE IF EXISTS companies;
+DROP TABLE IF EXISTS company;
 
-DROP TABLE IF EXISTS countries;
+DROP TABLE IF EXISTS country;
 
-DROP TABLE IF EXISTS languages;
+DROP TABLE IF EXISTS language;
 
-DROP TABLE IF EXISTS moviecountries;
+DROP TABLE IF EXISTS moviecountry;
 
-DROP TABLE IF EXISTS movielanguages;
+DROP TABLE IF EXISTS movielanguage;
 
-DROP TABLE IF EXISTS moviecompanies;
+DROP TABLE IF EXISTS moviecompany;
 
-CREATE TABLE movies (
+CREATE TABLE movie (
     movie_id     INTEGER,
     title        VARCHAR (120),
     overview     VARCHAR (500),
@@ -34,15 +35,15 @@ CREATE TABLE movies (
     )
 );
 
-CREATE TABLE companies (
+CREATE TABLE company (
     company_id INTEGER,
-    company    VARCHAR (100),
+    company_name   VARCHAR (100),
     PRIMARY KEY (
         company_id
     )
 );
 
-CREATE TABLE moviecompanies (
+CREATE TABLE moviecompany (
     movie_id   INTEGER,
     company_id INTEGER,
     PRIMARY KEY (
@@ -52,100 +53,100 @@ CREATE TABLE moviecompanies (
     FOREIGN KEY (
         movie_id
     )
-    REFERENCES movies_metadata,
+    REFERENCES movie,
     FOREIGN KEY (
         company_id
     )
-    REFERENCES companies
+    REFERENCES company
 );
 
-CREATE TABLE countries (
-    country      VARCHAR (100),
-    country_code CHARACTER (2),
+CREATE TABLE country (
+    country_name      VARCHAR (100),
+    country_id CHARACTER (2),
     PRIMARY KEY (
-        country_code
+        country_id
     )
 );
 
-CREATE TABLE moviecountries (
+CREATE TABLE moviecountry (
     movie_id     INTEGER,
-    country_code CHARACTER (2),
+    country_id CHARACTER (2),
     PRIMARY KEY (
         movie_id,
-        country_code
+        country_id
     ),
     FOREIGN KEY (
         movie_id
     )
-    REFERENCES movies_metadata,
+    REFERENCES movie,
     FOREIGN KEY (
-        country_code 
+        country_id 
     )
-    REFERENCES countries
+    REFERENCES country
 );
 
-CREATE TABLE languages (
-    language      VARCHAR (30),
-    language_code CHARACTER (2),
+CREATE TABLE language (
+    language_name     VARCHAR (30),
+    language_id CHARACTER (2),
     PRIMARY KEY (
-        language_code
+        language_id
     )
 );
 
-CREATE TABLE movielanguages (
+CREATE TABLE movielanguage (
     movie_id      INTEGER,
-    language_code CHARACTER (2),
+    language_id CHARACTER (2),
     PRIMARY KEY (
         movie_id,
-        language_code
+        language_id 
     ),
     FOREIGN KEY (
         movie_id
     )
-    REFERENCES movies_metadata,
+    REFERENCES movie,
     FOREIGN KEY (
-       	language_code
+       	language_id 
     )
-    REFERENCES languages 
+    REFERENCES language
 );
 
 
-CREATE TABLE genres (
+CREATE TABLE genre (
     movie_id INTEGER,
-    genre    VARCHAR (20),
+    genre_name    VARCHAR (20),
     PRIMARY KEY (
         movie_id,
-        genre
+        genre_name
     ),
     FOREIGN KEY (
         movie_id
     )
-    REFERENCES movies_metadata
+    REFERENCES movie
 );
 
-CREATE TABLE actors (
+CREATE TABLE actor (
     actor_id INTEGER,
-    actor     VARCHAR (50),
+    actor_name     VARCHAR (50),
     PRIMARY KEY (
         actor_id
     )
 );
 
-CREATE TABLE characters (
+CREATE TABLE character (
     movie_id  INTEGER,
     actor_id  INTEGER,
-    character VARCHAR (150),
+    character_name VARCHAR (150),
     PRIMARY KEY (
         movie_id,
         actor_id,
-        character
+        character_name
     ),
     FOREIGN KEY (
         movie_id
     )
-    REFERENCES movies_metadata,
+    REFERENCES movie,
     FOREIGN KEY (
         actor_id
     )
-    REFERENCES actors
+    REFERENCES actor
 );
