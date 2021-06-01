@@ -5,16 +5,16 @@
 This is a repo containing all files necessary to prepare the data and create the database for my `ISYS3412 Practical Database Concepts - Assignment 4`. It uses python to wrangle the data into the required format and uses the python `sqlite3` library to perform database schema creation and data insertion.
 
 ## Schema
-MOVIES(<ins>movie_id</ins>, title, overview, release_date, vote_average, runtime, budget, revenue)\
-COMPANIES(<ins>company_id</ins>, company)\
-MOVIECOMPANIES(<ins>movie_id</ins>\*, <ins>company_id</ins>\*)\
-COUNTRIES(<ins>country_id</ins>, country)\
-MOVIECOUNTRIES(<ins>movie_id</ins>\*, <ins>company_id</ins>\*)\
-LANGUAGES(<ins>language_id</ins>, language)\
-MOVIELANGUAGES(<ins>movie_id</ins>\*, <ins>language_id</ins>\*)\
-GENRES(<ins>movie_id</ins>\*, <ins>genre</ins>)\
-ACTORS(<ins>actor_id</ins>, actor)\
-CHARACTERS(<ins>movie_id</ins>\*, <ins>actor_id</ins>\*, <ins>character</ins>)\
+MOVIE(<ins>movie_id</ins>, title, overview, release_date, vote_average, runtime, budget, revenue)\
+COMPANY(<ins>company_id</ins>, company_name)\
+MOVIECOMPANY(<ins>movie_id</ins>\*, <ins>company_id</ins>\*)\
+COUNTRY(<ins>country_id</ins>, country_name)\
+MOVIECOUNTRY(<ins>movie_id</ins>\*, <ins>company_id</ins>\*)\
+LANGUAGE(<ins>language_id</ins>, language_name)\
+MOVIELANGUAGE(<ins>movie_id</ins>\*, <ins>language_id</ins>\*)\
+GENRE(<ins>movie_id</ins>\*, <ins>genre_name</ins>\*)\
+ACTOR(<ins>actor_id</ins>, actor_name)\
+CHARACTER(<ins>movie_id</ins>\*, <ins>actor_id</ins>\*, <ins>character_name</ins>)\
 
 ## Usage
 ### Prerequisites
