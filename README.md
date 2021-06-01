@@ -14,7 +14,7 @@ LANGUAGES(<ins>language_id</ins>, language)\
 MOVIELANGUAGES(<ins>movie_id</ins>\*, <ins>language_id</ins>\*)\
 GENRES(<ins>movie_id</ins>\*, <ins>genre</ins>)\
 ACTORS(<ins>actor_id</ins>, actor)\
-CHARACTERS(<ins>movie_id</ins>\*, <ins>actor_id</ins>\*, <ins>character</ins>)\
+CHARACTERS(<ins>movie_id</ins>\*, <ins>actor_id</ins>\*, <ins>character</ins>)
 
 ## Usage
 ### Prerequisites
