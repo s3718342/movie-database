@@ -1,6 +1,5 @@
 .ipynb_checkpoints
-*/.ipynb_checkpoints/*
-vscode
-output
-input
+.vscode
+
 db/movies.db
+demogit 
